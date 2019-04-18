@@ -34,7 +34,7 @@
 			this.$memoryCards.on("click", this.cardClicked);
 			this.$restartButton.on("click", $.proxy(this.reset, this));
 		},
-		// kinda messy but hey
+		// algorithem to animate tiles and match pairs kinda messy but hey
 		cardClicked: function(){
 			var _ = Memory;
 			var $card = $(this);
@@ -83,7 +83,10 @@
 			this.setup();
 			this.$game.show("slow");
 		},
-
+        
+        // Found this while loop Online to 
+        // move the tiles arround so they don't be 
+        // in the same place for every game.
 		// Fisher--Yates Algorithm -- https://bost.ocks.org/mike/shuffle/
 		shuffle: function(array){
 			var counter = array.length, temp, index;
@@ -111,7 +114,8 @@
 			return frag;
 		}
 	};
-
+    
+    //Objects array for all tiles in the game
 	var cards = [
 		{
 			name: "AmbitCare",
